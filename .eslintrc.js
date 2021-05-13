@@ -3,11 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'airbnb',
-    'prettier',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'prettier', 'plugin:prettier/recommended'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -21,11 +17,9 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'prettier',
-  ],
+  plugins: ['react', 'prettier'],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       'warn',
