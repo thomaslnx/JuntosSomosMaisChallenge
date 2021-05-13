@@ -14,7 +14,7 @@ export const HeaderContent = styled.section`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1131px;
+  max-width: 1136px;
 `;
 
 export const Image = styled.figure`
