@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   background: #f5f5f5;
 `;
 
-export const HeaderContent = styled.div`
+export const HeaderContent = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,7 +17,7 @@ export const HeaderContent = styled.div`
   max-width: 1131px;
 `;
 
-export const Image = styled.div`
+export const Image = styled.figure`
   .main-logo {
     width: 148px;
     height: 40px;
