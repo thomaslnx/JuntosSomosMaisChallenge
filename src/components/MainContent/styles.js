@@ -149,3 +149,5 @@ export const Member = styled.div`
     font-weight: 400;
   }
 `;
+
+export const PageIndex = styled.div``;

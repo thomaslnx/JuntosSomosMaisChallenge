@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import api from '../../services/api';
 import {
   Container,
   Header,
@@ -7,11 +9,20 @@ import {
   Member,
   MembersList,
   Pagination,
+  PageIndex,
 } from './styles';
 
 import avatar from '../../assets/images/avatar.png';
 
 export const MainContent = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(async () => {
+    const apiData = await api.get('/');
+    setUsers(apiData.data);
+  }, []);
+
+  console.log('Valor contido no estado users: ', users);
   return (
     <Container>
       <Header>
@@ -131,6 +142,8 @@ export const MainContent = () => {
               <p className="cidade">São Jose de Ribamar</p>
               <p className="estado-cep">Paraná - CEP 96895</p>
             </Member>
+
+            <PageIndex />
           </MembersList>
         </Members>
       </Content>
