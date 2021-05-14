@@ -12,7 +12,7 @@ import {
   PageIndex,
 } from './styles';
 
-import avatar from '../../assets/images/avatar.png';
+// import avatar from '../../assets/images/avatar.png';
 
 export const MainContent = () => {
   const [users, setUsers] = useState([]);
@@ -71,78 +71,36 @@ export const MainContent = () => {
             </div>
           </Pagination>
           <MembersList>
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
+            {users.map((user) => {
+              // Capitalize first letter of each word to state name.
+              const formatedState = user.location.state.split(' ');
+              const state = formatedState
+                .map((stateName) => {
+                  return stateName[0].toUpperCase() + stateName.substring(1);
+                })
+                .join(' ');
+              // Capitalize first letter for each word to user name.
+              const firstName =
+                user.name.first.charAt(0).toUpperCase() +
+                user.name.first.slice(1);
+              const lastName =
+                user.name.last.charAt(0).toUpperCase() +
+                user.name.last.slice(1);
 
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
-            <Member>
-              <img src={avatar} alt="avatar-logo" />
-              <p className="user-name">Joselino Alves</p>
-              <p className="endereco">Rua Espírito Santo, 2096</p>
-              <p className="cidade">São Jose de Ribamar</p>
-              <p className="estado-cep">Paraná - CEP 96895</p>
-            </Member>
-
+              return (
+                <Member>
+                  <img src={user.picture.thumbnail} alt="avatar-logo" />
+                  <p className="user-name">
+                    {firstName} {lastName}
+                  </p>
+                  <p className="endereco">{user.location.street}</p>
+                  <p className="cidade">{user.location.city}</p>
+                  <p className="estado-cep">
+                    {state} - CEP: {user.location.postcode}
+                  </p>
+                </Member>
+              );
+            })}
             <PageIndex />
           </MembersList>
         </Members>
@@ -152,3 +110,67 @@ export const MainContent = () => {
 };
 
 export default MainContent;
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// </Member>
+
+// <Member>
+// <img src={avatar} alt="avatar-logo" />
+// <p className="user-name">Joselino Alves</p>
+// <p className="endereco">Rua Espírito Santo, 2096</p>
+// <p className="cidade">São Jose de Ribamar</p>
+// <p className="estado-cep">Paraná - CEP 96895</p>
+// {/* </Member> */}
