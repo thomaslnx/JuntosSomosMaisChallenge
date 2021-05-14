@@ -14,7 +14,6 @@ export const Header = styled.header`
   width: 100%;
   max-width: 1136px;
   margin-top: 24px;
-  font-family: 'Roboto', sans-serif;
 
   .breadcrumb {
     font-size: 12px;
@@ -76,10 +75,11 @@ export const Pagination = styled.header`
   align-items: center;
   padding: 0 16px;
   width: 100%;
-  max-width: 848px;
+  max-width: 894px;
   height: 60px;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
+  margin-bottom: 16px;
 
   p {
     font-size: 16px;
@@ -96,5 +96,55 @@ export const Pagination = styled.header`
     width: 68px;
     font-weight: 400;
     font-size: 14px;
+  }
+`;
+
+export const MembersList = styled.section`
+  width: 100%;
+  max-width: 894px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 310px repeat(3, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+`;
+
+export const Member = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 285px;
+  height: 310px;
+  border: 1px solid #e5e5e5;
+
+  img {
+    width: 97px;
+    height: 97px;
+    border: none;
+    border-radius: 50%;
+    margin-top: 35px;
+  }
+
+  .user-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 12px;
+  }
+
+  .endereco {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 16px;
+  }
+
+  .cidade {
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 12px;
+  }
+
+  .estado-cep {
+    font-size: 12px;
+    font-weight: 400;
   }
 `;
