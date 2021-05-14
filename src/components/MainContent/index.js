@@ -20,7 +20,6 @@ export const MainContent = () => {
     setUsers(apiData.data);
   }, []);
 
-  console.log('Valor contido no estado users: ', users);
   return (
     <Container>
       <Header>
@@ -91,9 +90,9 @@ export const MainContent = () => {
                   <p className="user-name">
                     {firstName} {lastName}
                   </p>
-                  <p className="endereco">{user.location.street}</p>
-                  <p className="cidade">{user.location.city}</p>
-                  <p className="estado-cep">
+                  <p className="address">{user.location.street}</p>
+                  <p className="city">{user.location.city}</p>
+                  <p className="state-postcode">
                     {state} - CEP: {user.location.postcode}
                   </p>
                 </Member>

@@ -132,19 +132,19 @@ export const Member = styled.div`
     margin-top: 12px;
   }
 
-  .endereco {
+  .address {
     font-size: 14px;
     font-weight: 400;
     margin-top: 16px;
   }
 
-  .cidade {
+  .city {
     font-size: 12px;
     font-weight: 400;
     margin-top: 12px;
   }
 
-  .estado-cep {
+  .state-postcode {
     font-size: 12px;
     font-weight: 400;
   }
