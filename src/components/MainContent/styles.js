@@ -104,9 +104,10 @@ export const MembersList = styled.section`
   max-width: 894px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 310px repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   column-gap: 16px;
   row-gap: 16px;
+  margin-bottom: 156px;
 `;
 
 export const Member = styled.div`
