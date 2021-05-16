@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['airbnb', 'prettier', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'plugin:prettier/recommended',
+    'eslint:recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -34,6 +39,10 @@ module.exports = {
     'react/prop-types': 'off',
     'no-param-reassign': 'off',
     'no-console': 'off',
+    'no-unused-vars': 'off',
+    'react/no-array-index-key': 'off',
+    'prefer-const': 'off',
+    'jsx-a11y/anchor-is-valid': 0,
   },
   settings: {
     'import/extensions': ['.png'],

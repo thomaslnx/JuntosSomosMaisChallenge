@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
+import Pagination from '../Pagination'; // Included
+
 import {
   Container,
   Header,
@@ -8,18 +10,36 @@ import {
   Members,
   Member,
   MembersList,
-  Pagination,
-  PageIndex,
+  MembersHeader,
 } from './styles';
 
 export const MainContent = () => {
-  const [users, setUsers] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
+  const [currentUsers, setCurrentUsers] = useState([]);
+  const [totalPages, setTotalPages] = useState(null);
+  const [currentPage, setCurrentPage] = useState(null); // code add
 
   useEffect(async () => {
     const apiData = await api.get('/');
-    setUsers(apiData.data);
+    setAllUsers(apiData.data);
   }, []);
 
+  function onPageChanged(data) {
+    const { atualPage, pagesTotal, pageLimit } = data;
+
+    const offset = (atualPage - 1) * pageLimit;
+    const atualUsers = allUsers.slice(offset, offset + pageLimit);
+
+    setCurrentPage(atualPage);
+    setCurrentUsers(atualUsers);
+    setTotalPages(pagesTotal);
+  }
+
+  const numberOfUsers = allUsers.length; // code add
+  if (numberOfUsers === 0) return null;
+
+  console.log('Current users: ', currentUsers);
+  // console.log('Estado de currentUsers: ', currentUsers);
   return (
     <Container>
       <Header>
@@ -57,8 +77,10 @@ export const MainContent = () => {
         </StateList>
 
         <Members>
-          <Pagination>
-            <p>Exibindo 9 de 25 itens</p>
+          <MembersHeader>
+            <p>
+              Exibindo {currentPage} de {totalPages} itens
+            </p>
             <div className="option">
               <strong>ordenar por:</strong>
               <select name="sort" id="sort-type">
@@ -66,9 +88,9 @@ export const MainContent = () => {
                 <option value="state">Estado</option>
               </select>
             </div>
-          </Pagination>
+          </MembersHeader>
           <MembersList>
-            {users.map((user) => {
+            {currentUsers.map((user) => {
               // Capitalize first letter of each word to state name.
               const formatedState = user.location.state.split(' ');
               const state = formatedState
@@ -85,7 +107,7 @@ export const MainContent = () => {
                 user.name.last.slice(1);
 
               return (
-                <Member>
+                <Member key={user.id}>
                   <img src={user.picture.thumbnail} alt="avatar-logo" />
                   <p className="user-name">
                     {firstName} {lastName}
@@ -98,8 +120,14 @@ export const MainContent = () => {
                 </Member>
               );
             })}
-            <PageIndex />
           </MembersList>
+
+          <Pagination
+            totalUsers={numberOfUsers}
+            pageLimit={9}
+            pageNeighbors={1}
+            onPageChanged={onPageChanged}
+          />
         </Members>
       </Content>
     </Container>

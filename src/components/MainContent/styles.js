@@ -68,7 +68,7 @@ export const Members = styled.section`
   width: 100vw;
 `;
 
-export const Pagination = styled.header`
+export const MembersHeader = styled.header`
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
