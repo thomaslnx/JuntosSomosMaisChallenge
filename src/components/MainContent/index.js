@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import api from '../../services/api';
-import Pagination from '../Pagination'; // Included
+import Pagination from '../Pagination';
 
 import {
   Container,
@@ -17,7 +17,7 @@ export const MainContent = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [currentUsers, setCurrentUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(null);
-  const [currentPage, setCurrentPage] = useState(null); // code add
+  const [currentPage, setCurrentPage] = useState(null);
 
   useEffect(async () => {
     const apiData = await api.get('/');
@@ -35,11 +35,9 @@ export const MainContent = () => {
     setTotalPages(pagesTotal);
   }
 
-  const numberOfUsers = allUsers.length; // code add
+  const numberOfUsers = allUsers.length;
   if (numberOfUsers === 0) return null;
 
-  console.log('Current users: ', currentUsers);
-  // console.log('Estado de currentUsers: ', currentUsers);
   return (
     <Container>
       <Header>
