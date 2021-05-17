@@ -128,14 +128,8 @@ const Pagination = (props) => {
           if (page === LEFT_PAGE)
             return (
               <li key={index} className="page-item">
-                <a
-                  className="page-link"
-                  href="#"
-                  aria-label="Previous"
-                  onClick={handleMoveLeft}
-                >
-                  <span aria-hidden="true">&laquo;</span>
-                  {/* <span className="sr-only">Previous</span> */}
+                <a className="page-link" href="#" onClick={handleMoveLeft}>
+                  <span>&laquo;</span>
                 </a>
               </li>
             );
@@ -143,14 +137,8 @@ const Pagination = (props) => {
           if (page === RIGHT_PAGE)
             return (
               <li key={index} className="page-item">
-                <a
-                  className="page-link"
-                  href="#"
-                  aria-label="Next"
-                  onClick={handleMoveRight}
-                >
+                <a className="page-link" href="#" onClick={handleMoveRight}>
                   <span aria-hidden="true">&raquo;</span>
-                  {/* <span className="sr-only">Next</span> */}
                 </a>
               </li>
             );
