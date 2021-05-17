@@ -66,6 +66,10 @@ export const StateList = styled.aside`
 
 export const Members = styled.section`
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const MembersHeader = styled.header`
@@ -102,6 +106,8 @@ export const MembersHeader = styled.header`
 export const MembersList = styled.section`
   width: 100%;
   max-width: 894px;
+  height: 100%;
+  max-height: 850px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -149,5 +155,3 @@ export const Member = styled.div`
     font-weight: 400;
   }
 `;
-
-export const PageIndex = styled.div``;

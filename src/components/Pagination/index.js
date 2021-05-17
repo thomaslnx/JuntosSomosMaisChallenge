@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Container } from './styles';
+import leftPath from '../../assets/images/left-path.png';
+import rightPath from '../../assets/images/right-path.png';
 
 const LEFT_PAGE = 'LEFT';
 const RIGHT_PAGE = 'RIGHT';
@@ -111,11 +114,17 @@ const Pagination = (props) => {
   const pages = fetchPageNumbers();
 
   return (
-    <nav aria-label="Members Pagination">
-      <h1>Pagination</h1>
+    <Container className="members-pagination">
+      <button
+        type="button"
+        className="left-button"
+        disabled={currentPage === 1}
+        onClick={(e) => handleClick(currentPage - 1, e)}
+      >
+        <img src={leftPath} alt="button-icon" />
+      </button>
       <ul className="pagination">
         {pages.map((page, index) => {
-          console.log('Paginations');
           if (page === LEFT_PAGE)
             return (
               <li key={index} className="page-item">
@@ -162,7 +171,15 @@ const Pagination = (props) => {
           );
         })}
       </ul>
-    </nav>
+      <button
+        type="button"
+        className="right-button"
+        disabled={currentPage === 23}
+        onClick={(e) => handleClick(currentPage + 1, e)}
+      >
+        <img src={rightPath} alt="button-icon" />
+      </button>
+    </Container>
   );
 };
 
