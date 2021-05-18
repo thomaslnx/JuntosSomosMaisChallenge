@@ -6,6 +6,7 @@ import api from '../../services/api';
 
 const Header = () => {
   const [search, setSearch] = useState('');
+  const [filteredUsers, setFilteredUsers] = useState([]);
 
   const searchUser = async (e) => {
     const searchInput = e.target.value;
@@ -20,10 +21,10 @@ const Header = () => {
         const firstName = list.name.first;
         const lastName = list.name.last;
         let foundedName;
-        if (searchInput === firstName) {
+        if (firstName.includes(searchInput)) {
           foundedName = list;
         }
-        if (searchInput === lastName) {
+        if (lastName.includes(searchInput)) {
           foundedName = list;
         }
 
@@ -35,7 +36,11 @@ const Header = () => {
       });
 
     console.log('Resultado de finalList: ', newList);
+
+    setFilteredUsers(newList);
   };
+
+  console.log('Conteudo do estado filteredUsers: ', filteredUsers);
 
   return (
     <Container>
