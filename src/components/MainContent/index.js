@@ -1,4 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UsersListContext } from '../../context/UsersContext';
 import api from '../../services/api';
 import Pagination from '../Pagination';
 
@@ -18,6 +19,11 @@ export const MainContent = () => {
   const [currentUsers, setCurrentUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(null);
+
+  const { usersFiltered } = useContext(UsersListContext);
+  const [filteredUsers, _] = usersFiltered;
+
+  console.log('Filtered users: ', filteredUsers);
 
   useEffect(async () => {
     const apiData = await api.get('/');
