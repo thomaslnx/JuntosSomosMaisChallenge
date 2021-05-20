@@ -23,8 +23,6 @@ export const MainContent = () => {
   const { usersFiltered } = useContext(UsersListContext);
   const [filteredUsers, _] = usersFiltered;
 
-  console.log('Filtered users: ', filteredUsers);
-
   useEffect(async () => {
     const apiData = await api.get('/');
     setAllUsers(apiData.data);
@@ -43,6 +41,8 @@ export const MainContent = () => {
 
   const numberOfUsers = allUsers.length;
   if (numberOfUsers === 0) return null;
+
+  console.log('Filtered users dentro de mainContent: ', filteredUsers);
 
   return (
     <Container>
@@ -94,36 +94,71 @@ export const MainContent = () => {
             </div>
           </MembersHeader>
           <MembersList>
-            {currentUsers.map((user) => {
-              // Capitalize first letter of each word to state name.
-              const formatedState = user.location.state.split(' ');
-              const state = formatedState
-                .map((stateName) => {
-                  return stateName[0].toUpperCase() + stateName.substring(1);
-                })
-                .join(' ');
-              // Capitalize first letter for each word to user name.
-              const firstName =
-                user.name.first.charAt(0).toUpperCase() +
-                user.name.first.slice(1);
-              const lastName =
-                user.name.last.charAt(0).toUpperCase() +
-                user.name.last.slice(1);
+            {filteredUsers.length !== 0
+              ? filteredUsers.map((user) => {
+                  // Capitalize first letter of each word to state name.
+                  const formatedState = user.location.state.split(' ');
+                  const state = formatedState
+                    .map((stateName) => {
+                      return (
+                        stateName[0].toUpperCase() + stateName.substring(1)
+                      );
+                    })
+                    .join(' ');
+                  // Capitalize first letter for each word to user name.
+                  const firstName =
+                    user.name.first.charAt(0).toUpperCase() +
+                    user.name.first.slice(1);
+                  const lastName =
+                    user.name.last.charAt(0).toUpperCase() +
+                    user.name.last.slice(1);
 
-              return (
-                <Member key={user.id}>
-                  <img src={user.picture.thumbnail} alt="avatar-logo" />
-                  <p className="user-name">
-                    {firstName} {lastName}
-                  </p>
-                  <p className="address">{user.location.street}</p>
-                  <p className="city">{user.location.city}</p>
-                  <p className="state-postcode">
-                    {state} - CEP: {user.location.postcode}
-                  </p>
-                </Member>
-              );
-            })}
+                  return (
+                    <Member key={user.id}>
+                      <img src={user.picture.thumbnail} alt="avatar-logo" />
+                      <p className="user-name">
+                        {firstName} {lastName}
+                      </p>
+                      <p className="address">{user.location.street}</p>
+                      <p className="city">{user.location.city}</p>
+                      <p className="state-postcode">
+                        {state} - CEP: {user.location.postcode}
+                      </p>
+                    </Member>
+                  );
+                })
+              : currentUsers.map((user) => {
+                  // Capitalize first letter of each word to state name.
+                  const formatedState = user.location.state.split(' ');
+                  const state = formatedState
+                    .map((stateName) => {
+                      return (
+                        stateName[0].toUpperCase() + stateName.substring(1)
+                      );
+                    })
+                    .join(' ');
+                  // Capitalize first letter for each word to user name.
+                  const firstName =
+                    user.name.first.charAt(0).toUpperCase() +
+                    user.name.first.slice(1);
+                  const lastName =
+                    user.name.last.charAt(0).toUpperCase() +
+                    user.name.last.slice(1);
+
+                  return (
+                    <Member key={user.id}>
+                      <img src={user.picture.thumbnail} alt="avatar-logo" />
+                      <p className="user-name">
+                        {firstName} {lastName}
+                      </p>
+                      <p className="address">{user.location.street}</p>
+                      <p className="city">{user.location.city}</p>
+                      <p className="state-postcode">
+                        {state} - CEP: {user.location.postcode}
+                      </p>
+                    </Member>
+                  );
+                })}
           </MembersList>
 
           <Pagination

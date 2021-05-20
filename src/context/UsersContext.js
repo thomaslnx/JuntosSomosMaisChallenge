@@ -35,6 +35,9 @@ export function UsersListProvider({ children }) {
       });
 
     console.log('Resultado de finalList: ', newList);
+    if (newList.length > 9) {
+      newList = [];
+    }
 
     setFilteredUsers(newList);
   };
