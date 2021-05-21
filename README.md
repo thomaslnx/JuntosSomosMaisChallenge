@@ -37,6 +37,6 @@ Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem colo
 
 
 # Note from Author:
-```in this project were used too few libraries and this was intentional because I was wanna show that I have some good domain from the main language used and framework e such domain turn more ease the use of ready tools. I hope you appreciate my work and effort in accomplish the final result. In case of doubt please do contact me and I'll pleasure to answer any questions about the project.```
+```In this project were used too few libraries and this was intentional because I was wanna show that I have some good domain from the main language used and framework e such domain turn more ease the use of ready tools. I hope you appreciate my work and effort in accomplish the final result. In case of doubt please do contact me and I'll pleasure to answer any questions about the project.```
 
 Made with :heartbeat: by [Marcos Moura](https://github.com/thomaslnx)
