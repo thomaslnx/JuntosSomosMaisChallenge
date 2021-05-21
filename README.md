@@ -20,8 +20,6 @@
 
 <p>The present project consists of a technical assessment for a web development opened position on JuntosSomos+. A company as defined by them it self:
 </p>
-<br>
-
 <p>Quem somos <br>
 Somos a maior rede de relacionamento do mercado de construção civil. Trabalhamos duro para unir empresas líderes do setor e conectá-las aos lojistas e profissionais de obra.
 
