@@ -2,12 +2,12 @@ import { useState, useEffect, useContext } from 'react';
 import { UsersListContext } from '../../context/UsersContext';
 import api from '../../services/api';
 import Pagination from '../Pagination';
+import StateList from '../StateList';
 
 import {
   Container,
   Header,
   Content,
-  StateList,
   Members,
   Member,
   MembersList,
@@ -20,8 +20,9 @@ export const MainContent = () => {
   const [totalPages, setTotalPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(null);
 
-  const { usersFiltered } = useContext(UsersListContext);
+  const { usersFiltered, usersSearched } = useContext(UsersListContext);
   const [filteredUsers, _] = usersFiltered;
+  const [search] = usersSearched;
 
   useEffect(async () => {
     const apiData = await api.get('/');
@@ -42,8 +43,6 @@ export const MainContent = () => {
   const numberOfUsers = allUsers.length;
   if (numberOfUsers === 0) return null;
 
-  console.log('Filtered users dentro de mainContent: ', filteredUsers);
-
   return (
     <Container>
       <Header>
@@ -56,29 +55,7 @@ export const MainContent = () => {
         </div>
       </Header>
       <Content>
-        <StateList>
-          <span className="title">Por Estado</span>
-          <ul className="states">
-            <li>
-              <input type="checkbox" /> São Paulo
-            </li>
-            <li>
-              <input type="checkbox" /> Rio de Janeiro
-            </li>
-            <li>
-              <input type="checkbox" />
-              Minas Gerais
-            </li>
-            <li>
-              <input type="checkbox" />
-              Espírito Santo
-            </li>
-            <li>
-              <input type="checkbox" />
-              Bahia
-            </li>
-          </ul>
-        </StateList>
+        <StateList statesToShow={7} />
 
         <Members>
           <MembersHeader>
@@ -112,6 +89,11 @@ export const MainContent = () => {
                   const lastName =
                     user.name.last.charAt(0).toUpperCase() +
                     user.name.last.slice(1);
+
+                  console.log(
+                    'Valor de search dentro de mainContent: ',
+                    search
+                  );
 
                   return (
                     <Member key={user.id}>
