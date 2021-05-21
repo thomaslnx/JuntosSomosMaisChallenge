@@ -55,7 +55,7 @@ export const MainContent = () => {
         </div>
       </Header>
       <Content>
-        <StateList statesToShow={7} />
+        <StateList statesInfo={allUsers} />
 
         <Members>
           <MembersHeader>
