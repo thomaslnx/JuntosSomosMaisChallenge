@@ -1,12 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { List } from './styles';
 
-let arrayFromStates = [];
-
 const StateList = ({ statesToShow }) => {
-  const [statesShow, setStatesShow] = useState([]);
   const [visible, setVisible] = useState(7);
-  let visibleStates = statesToShow;
 
   const states = [
     'Rondônia',
