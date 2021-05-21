@@ -22,10 +22,10 @@
 </p>
 <br>
 
-```Quem somos
+<p>Quem somos <br>
 Somos a maior rede de relacionamento do mercado de construção civil. Trabalhamos duro para unir empresas líderes do setor e conectá-las aos lojistas e profissionais de obra.
 
-Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem coloca a mão na massa e ajuda a construir um Brasil melhor.```
+Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem coloca a mão na massa e ajuda a construir um Brasil melhor.</p>
 
 # ⚙️ Applied Libraries and Technologies
 
