@@ -19,12 +19,13 @@
 # :memo: Description
 
 <p>The present project consists of a technical assessment for a web development opened position on JuntosSomos+. A company as defined by them it self:
-<br> <br>
-<pre>Quem somos
-Somos a maior rede de relacionamento do mercado de construção civil. Trabalhamos duro para unir empresas líderes do setor e conectá-las aos lojistas e profissionais de obra.
-&nbsp;
-Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem coloca a mão na massa e ajuda a construir um Brasil melhor. </pre>
 </p>
+<br>
+
+```Quem somos
+Somos a maior rede de relacionamento do mercado de construção civil. Trabalhamos duro para unir empresas líderes do setor e conectá-las aos lojistas e profissionais de obra.
+
+Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem coloca a mão na massa e ajuda a construir um Brasil melhor.```
 
 # ⚙️ Applied Libraries and Technologies
 
