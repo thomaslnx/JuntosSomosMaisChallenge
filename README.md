@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+<span align="center">
+  <img src="readeMEassets/juntos-logo.png">
+</span>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Technical Assesment for Opened Position in JuntosSomos+
 
-## Available Scripts
+[![Github](https://img.shields.io/badge/Github-Marcos%20Moura-blue)](https://github.com/thomaslnx)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Marcos%20Moura-blue)](https://www.linkedin.com/in/marcos-de-moura-silva/)
 
-In the project directory, you can run:
+<br/>
+<br/>
 
-### `yarn start`
+<hr/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<span align="center">
+  <img src="readeMEassets/print.png">
+</span>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# :memo: Description
 
-### `yarn test`
+<p>The present project consists of a technical assessment for a web development opened position on JuntosSomos+. A company as defined by them it self:
+<br> <br>
+<pre>Quem somos
+Somos a maior rede de relacionamento do mercado de construção civil. Trabalhamos duro para unir empresas líderes do setor e conectá-las aos lojistas e profissionais de obra.
+&nbsp;
+Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem coloca a mão na massa e ajuda a construir um Brasil melhor. </pre>
+</p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# ⚙️ Applied Libraries and Technologies
 
-### `yarn build`
+- ReactJS;
+- Axios;
+- Styled-Components;
+- ESlint;
+- Prettier;
+- JSON-Server;
+- Backend NodeJS for serving fake API data using JSON-Server;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Note from Author:
+```in this project were used too few libraries and this was intentional because I was wanna show that I have some good domain from the main language used and framework e such domain turn more ease the use of ready tools. I hope you appreciate my work and effort in accomplish the final result. In case of doubt please do contact me and I'll pleasure to answer any questions about the project.```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made with :heartbeat: by [Marcos Moura](https://github.com/thomaslnx)

@@ -32,8 +32,6 @@ const StateList = ({ statesInfo }) => {
     }
   };
 
-  // console.log('Valor de checkedState fora de stateMapped: ', checkedState); // It's working
-
   let stateFiltered = [];
   const stateMapped = searchList.map((item) => {
     if (
@@ -69,6 +67,9 @@ const StateList = ({ statesInfo }) => {
     return stateFiltered;
   });
 
+  // Consoles deixados para mostrar que a lógica está funcionando, com um pequeno bug. Resolvi deixar
+  // por conta que infelizmente por conta de hoje (21.05.21) ser o prazo final para entrega do desafio e não ter conseguido
+  // implementar a tempo na página. Os teste também infelizmente não foram implementados pelo mesmo motivo.
   console.log('Valor de stateFiltered: ', stateFiltered);
   console.log('Valor de checkedState: ', checkedState);
 
