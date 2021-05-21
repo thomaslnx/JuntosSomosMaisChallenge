@@ -64,13 +64,13 @@ const StateList = ({ statesInfo }) => {
         state: item.location.state,
         cep: item.location.postcode,
       });
-      console.log('Valor de checkedState: ', checkedState);
     }
 
     return stateFiltered;
   });
 
   console.log('Valor de stateFiltered: ', stateFiltered);
+  console.log('Valor de checkedState: ', checkedState);
 
   const states = [
     'Rondônia',
