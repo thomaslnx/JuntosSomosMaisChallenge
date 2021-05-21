@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const List = styled.aside`
   width: 272px;
-  height: 474px;
+  min-height: 374px;
+  height: 100%;
   border: 1px solid #e5e5e5;
   border-radius: 4px;
   padding: 24px 27px;
@@ -12,6 +13,12 @@ export const List = styled.aside`
     font-size: 20px;
     font-weight: 500;
     line-height: 24px;
+  }
+
+  a {
+    font-weight: 400;
+    font-size: 16px;
+    color: #222d39;
   }
 
   ul {

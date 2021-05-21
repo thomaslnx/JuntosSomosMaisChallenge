@@ -1,6 +1,13 @@
+import { useState, useEffect } from 'react';
 import { List } from './styles';
 
+let arrayFromStates = [];
+
 const StateList = ({ statesToShow }) => {
+  const [statesShow, setStatesShow] = useState([]);
+  const [visible, setVisible] = useState(7);
+  let visibleStates = statesToShow;
+
   const states = [
     'Rondônia',
     'Acre',
@@ -31,12 +38,19 @@ const StateList = ({ statesToShow }) => {
     'Distrito Federal',
   ];
 
-  console.log('Valor de states to show: ', statesToShow);
+  const showMoreStates = (e) => {
+    e.preventDefault();
+    if (visible === 7) {
+      setVisible((vis) => vis + 20);
+    } else {
+      setVisible((vis) => vis - 20);
+    }
+  };
 
   return (
     <List>
       <span className="title">Por Estado</span>
-      {states.map((state) => (
+      {states.slice(0, visible).map((state) => (
         <>
           <ul className="states">
             <li>
@@ -46,6 +60,9 @@ const StateList = ({ statesToShow }) => {
           </ul>
         </>
       ))}
+      <a href="#" onClick={showMoreStates}>
+        {visible !== 27 ? 'Ver todos' : 'Ver menos'}
+      </a>
     </List>
   );
 };
