@@ -1,77 +1,20 @@
-import { useState, useEffect } from 'react';
-import { List, Member } from './styles';
+import { useState, useEffect, useContext } from 'react';
+import { CheckedStatesContext } from '../../context/CheckedStatesContext';
+import { List } from './styles';
 
 const StateList = ({ statesInfo }) => {
   const [visible, setVisible] = useState(7);
-  const [statesList, setStatesList] = useState(statesInfo);
-  const [statesFiltered, setStateFiltered] = useState([]);
-
-  // code for search by checkbox
-  const [checkedState, setCheckedState] = useState([]);
-  const [searchList, setSearchList] = useState(statesList);
-  const [checked, setChecked] = useState(false);
+  const [_, setStatesList] = useState(statesInfo);
+  const { handleCheckBoxFunction, checkedBox, selectedState } =
+    useContext(CheckedStatesContext);
 
   // Code added for select state from checkbox option
   useEffect(() => {
     const statesSelected = statesInfo.map((user) => {
-      // return user.location.state;
       return user;
     });
     setStatesList(statesSelected);
   }, []);
-
-  const handleCheckbox = (e) => {
-    if (checkedState.includes(e.target.value)) {
-      const filtered = checkedState.filter((state) => {
-        return state !== e.target.value;
-      });
-      setCheckedState(filtered);
-    } else {
-      setCheckedState((prevValue) => [...prevValue, e.target.value]);
-      setChecked(true);
-    }
-  };
-
-  let stateFiltered = [];
-  const stateMapped = searchList.map((item) => {
-    if (
-      checkedState.includes(item.location.state) ||
-      checkedState.length === 0
-    ) {
-      // Capitalize first letter of each word to state name.
-
-      const formatedState = item.location.state.split(' ');
-      const state = formatedState
-        .map((stateName) => {
-          return stateName[0].toUpperCase() + stateName.substring(1);
-        })
-        .join(' ');
-      // Capitalize first letter for each word to user name.
-      const firstName =
-        item.name.first.charAt(0).toUpperCase() + item.name.first.slice(1);
-      const lastName =
-        item.name.last.charAt(0).toUpperCase() + item.name.last.slice(1);
-
-      stateFiltered.push({
-        id: item.id,
-        picture: item.picture.thumbnail,
-        firstName,
-        lastName,
-        street: item.location.street,
-        city: item.location.city,
-        state: item.location.state,
-        cep: item.location.postcode,
-      });
-    }
-
-    return stateFiltered;
-  });
-
-  // Consoles deixados para mostrar que a lógica está funcionando, com um pequeno bug. Resolvi deixar
-  // por conta que infelizmente por conta de hoje (21.05.21) ser o prazo final para entrega do desafio e não ter conseguido
-  // implementar a tempo na página. Os teste também infelizmente não foram implementados pelo mesmo motivo.
-  console.log('Valor de stateFiltered: ', stateFiltered);
-  console.log('Valor de checkedState: ', checkedState);
 
   const states = [
     'Rondônia',
@@ -120,11 +63,11 @@ const StateList = ({ statesInfo }) => {
         return (
           <>
             <ul className="states">
-              <li>
+              <li key={state}>
                 <input
                   type="checkbox"
                   value={lowerState}
-                  onClick={handleCheckbox}
+                  onClick={handleCheckBoxFunction}
                 />
                 {state}
               </li>

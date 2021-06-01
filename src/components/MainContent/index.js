@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { UsersListContext } from '../../context/UsersContext';
+import { CheckedStatesContext } from '../../context/CheckedStatesContext';
 import api from '../../services/api';
 import Pagination from '../Pagination';
 import StateList from '../StateList';
@@ -21,6 +22,7 @@ export const MainContent = () => {
   const [currentPage, setCurrentPage] = useState(null);
 
   const { usersFiltered, usersSearched } = useContext(UsersListContext);
+  const { selectedState, checkedBox } = useContext(CheckedStatesContext);
   const [filteredUsers, _] = usersFiltered;
   const [search] = usersSearched;
 

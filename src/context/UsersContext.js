@@ -34,7 +34,6 @@ export function UsersListProvider({ children }) {
         return item;
       });
 
-    // console.log('Resultado de finalList: ', newList);
     if (newList.length > 9) {
       newList = [];
     }
