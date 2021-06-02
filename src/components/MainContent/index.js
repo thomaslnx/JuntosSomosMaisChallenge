@@ -4,6 +4,7 @@ import { CheckedStatesContext } from '../../context/CheckedStatesContext';
 import api from '../../services/api';
 import Pagination from '../Pagination';
 import StateList from '../StateList';
+import UsersSortedByState from '../UsersSortedByStates';
 
 import {
   Container,
@@ -15,16 +16,15 @@ import {
   MembersHeader,
 } from './styles';
 
-export const MainContent = () => {
+const MainContent = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [currentUsers, setCurrentUsers] = useState([]);
   const [totalPages, setTotalPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(null);
 
-  const { usersFiltered, usersSearched } = useContext(UsersListContext);
-  const { selectedState, checkedBox } = useContext(CheckedStatesContext);
+  const { usersFiltered } = useContext(UsersListContext);
+  const { selectedStateList } = useContext(CheckedStatesContext);
   const [filteredUsers, _] = usersFiltered;
-  const [search] = usersSearched;
 
   useEffect(async () => {
     const apiData = await api.get('/');
@@ -44,6 +44,18 @@ export const MainContent = () => {
 
   const numberOfUsers = allUsers.length;
   if (numberOfUsers === 0) return null;
+
+  if (selectedStateList.length !== 0) {
+    console.log('Dentro do if do UsersSortedByState');
+    return (
+      <UsersSortedByState
+        selectedStates={selectedStateList}
+        page={currentPage}
+        pagesTotal={totalPages}
+        pageChangedFunction={onPageChanged}
+      />
+    );
+  }
 
   return (
     <Container>
@@ -91,11 +103,6 @@ export const MainContent = () => {
                   const lastName =
                     user.name.last.charAt(0).toUpperCase() +
                     user.name.last.slice(1);
-
-                  console.log(
-                    'Valor de search dentro de mainContent: ',
-                    search
-                  );
 
                   return (
                     <Member key={user.id}>

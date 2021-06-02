@@ -67,11 +67,12 @@ export function CheckedStatesProvider({ children }) {
     stateFiltered = [];
   }
 
-  console.log('Valor de stateFiltered: ', stateFiltered);
-  console.log('Valor de checkedState: ', checkedState);
+  // console.log('Valor de stateFiltered: ', stateFiltered);
+  // console.log('Valor de checkedState: ', checkedState);
 
   const statesData = {
     selectedState: [checkedState, setCheckedState],
+    selectedStateList: stateFiltered,
     checkedBox: [checked, setChecked],
     handleCheckBoxFunction: handleCheckbox,
   };

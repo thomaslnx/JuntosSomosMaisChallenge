@@ -5,8 +5,7 @@ import { List } from './styles';
 const StateList = ({ statesInfo }) => {
   const [visible, setVisible] = useState(7);
   const [_, setStatesList] = useState(statesInfo);
-  const { handleCheckBoxFunction, checkedBox, selectedState } =
-    useContext(CheckedStatesContext);
+  const { handleCheckBoxFunction } = useContext(CheckedStatesContext);
 
   // Code added for select state from checkbox option
   useEffect(() => {
