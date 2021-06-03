@@ -22,18 +22,10 @@ const SortedByStatePagination = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   let { totalUsers, pageLimit, pageNeighbors } = props;
 
-  totalUsers = typeof totalUsers === 'number' ? totalUsers : 200;
-  pageLimit = typeof pageLimit === 'number' ? pageLimit : 9;
-
-  pageNeighbors =
-    typeof pageNeighbors === 'number'
-      ? Math.max(0, Math.min(pageNeighbors, 2))
-      : 0;
-
   const pagesTotal = Math.ceil(totalUsers / pageLimit);
 
   const gotoPage = (page) => {
-    const { onPageChanged = (f) => f } = props;
+    const { onStateSortedPageChanged = (f) => f } = props;
 
     const atualPage = Math.max(0, Math.min(page, pagesTotal));
 
@@ -44,7 +36,7 @@ const SortedByStatePagination = (props) => {
       totalUsers,
     };
     setCurrentPage(atualPage);
-    onPageChanged(paginationData);
+    onStateSortedPageChanged(paginationData);
   };
 
   useEffect(() => {

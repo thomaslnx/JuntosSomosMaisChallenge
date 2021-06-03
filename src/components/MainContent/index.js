@@ -24,23 +24,45 @@ const MainContent = () => {
 
   const { usersFiltered } = useContext(UsersListContext);
   const { selectedStateList, selectedState } = useContext(CheckedStatesContext);
+  const [stateSortedUsers, setStateSortedUsers] = useState([]);
   const [filteredUsers, _] = usersFiltered;
   const [checkedState] = selectedState;
   const sizeOfCheckedState = checkedState.length;
+  const quantityOfSelectedStates = selectedStateList.length;
 
   useEffect(async () => {
     const apiData = await api.get('/');
     setAllUsers(apiData.data);
   }, []);
 
+  /**
+   * Lógica da paginação quando não houver nenhum estado checked.
+   */
   function onPageChanged(data) {
     const { atualPage, pagesTotal, pageLimit } = data;
 
+    // Na primeira página o valor de offset deve ser 0 acrescentando em 9 a cada página.
     const offset = (atualPage - 1) * pageLimit;
+
+    // Quantidade de usuários a ser mostrado por página. 9
     const atualUsers = allUsers.slice(offset, offset + pageLimit);
 
     setCurrentPage(atualPage);
     setCurrentUsers(atualUsers);
+    setTotalPages(pagesTotal);
+  }
+
+  /**
+   * Lógica da paginação quando houver um ou mais estado checked.
+   */
+  function onStateSortedPageChanged(data) {
+    const { atualPage, pagesTotal, pageLimit } = data;
+
+    const offset = (atualPage - 1) * pageLimit;
+    const sortedUsers = selectedStateList.slice(offset, offset + pageLimit);
+
+    setCurrentPage(atualPage);
+    setStateSortedUsers(sortedUsers);
     setTotalPages(pagesTotal);
   }
 
@@ -76,7 +98,7 @@ const MainContent = () => {
               </div>
             </MembersHeader>
             <MembersList>
-              {selectedStateList.map((user) => {
+              {stateSortedUsers.map((user) => {
                 // Capitalize first letter of each word to state name.
                 const formatedState = user.state.split(' ');
                 const state = formatedState
@@ -109,16 +131,17 @@ const MainContent = () => {
             </MembersList>
 
             <SortedByStatePagination
-              totalUsers={sizeOfCheckedState}
+              totalUsers={quantityOfSelectedStates}
               pageLimit={9}
               pageNeighbors={1}
-              onPageChanged={onPageChanged}
+              onStateSortedPageChanged={onStateSortedPageChanged}
             />
           </Members>
         </Content>
       </Container>
     );
   }
+
   return (
     <Container>
       <Header>
