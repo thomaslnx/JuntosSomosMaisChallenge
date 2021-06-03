@@ -28,15 +28,25 @@ Promovemos diversos benefícios exclusivos e mais desenvolvimento para quem colo
 # ⚙️ Applied Libraries and Technologies
 
 - ReactJS;
+- ReactJS Context API
+- NodeJS for serving fake API data using JSON-Server;
 - Axios;
 - Styled-Components;
 - ESlint;
 - Prettier;
 - JSON-Server;
-- Backend NodeJS for serving fake API data using JSON-Server;
+- Heroku for hosting docker containerized backend;
+- Netlify for hosting front end app;
 
 
 # Note from Author:
 ```In this project were used too few libraries and this was intentional because I was wanna show that I have some good domain from the main language used and framework e such domain turn more ease the use of ready tools. I hope you appreciate my work and effort in accomplish the final result. In case of doubt please do contact me and I'll pleasure to answer any questions about the project.```
+
+## Feel free to lookout the live version from app:
+[![Juntos Somos+](https://juntossomoschallenge.netlify.app/)](https://juntossomoschallenge.netlify.app/)
+
+## And to lookout too docker container which contains the backend:
+[![Backend](https://github.com/thomaslnx/BackendJuntos)](https://github.com/thomaslnx/BackendJuntos)
+
 
 Made with :heartbeat: by [Marcos Moura](https://github.com/thomaslnx)
