@@ -30,10 +30,12 @@ const MainContent = () => {
   const sizeOfCheckedState = checkedState.length;
   const quantityOfSelectedStates = selectedStateList.length;
 
+  console.log('Valor de selectStateList: ', selectedStateList);
+
   useEffect(async () => {
     const apiData = await api.get('/');
     setAllUsers(apiData.data);
-  }, []);
+  }, [selectedStateList]);
 
   /**
    * Lógica da paginação quando não houver nenhum estado checked.

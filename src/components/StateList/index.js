@@ -7,6 +7,8 @@ const StateList = ({ statesInfo }) => {
   const [_, setStatesList] = useState(statesInfo);
   const { handleCheckBoxFunction } = useContext(CheckedStatesContext);
 
+  const [count, setCount] = useState(0);
+
   // Code added for select state from checkbox option
   useEffect(() => {
     const statesSelected = statesInfo.map((user) => {
