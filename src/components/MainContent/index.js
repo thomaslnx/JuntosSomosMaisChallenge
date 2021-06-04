@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+
 import { UsersListContext } from '../../context/UsersContext';
 import { CheckedStatesContext } from '../../context/CheckedStatesContext';
 import api from '../../services/api';
@@ -191,7 +192,9 @@ const MainContent = () => {
 
                   return (
                     <Member key={user.id}>
-                      <img src={user.picture.thumbnail} alt="avatar-logo" />
+                      <a href="#">
+                        <img src={user.picture.thumbnail} alt="avatar-logo" />
+                      </a>
                       <p className="user-name">
                         {firstName} {lastName}
                       </p>
@@ -224,6 +227,7 @@ const MainContent = () => {
                   return (
                     <Member key={user.id}>
                       <img src={user.picture.thumbnail} alt="avatar-logo" />
+
                       <p className="user-name">
                         {firstName} {lastName}
                       </p>
